@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMCategoryProdukTable extends Migration {
+class CreateProductCategoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateMCategoryProdukTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('m_category_produk', function(Blueprint $table)
+		Schema::create('product_categories', function(Blueprint $table)
 		{
-			$table->integer('id', true);
-			$table->string('nama_category', 25);
+			$table->uuid('uuid', true);
+			$table->integer('code')->unsigned();
+			$table->string('name', 25);
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateMCategoryProdukTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('m_category_produk');
+		Schema::dropIfExists('product_categories');
 	}
 
 }

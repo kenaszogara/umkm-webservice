@@ -13,13 +13,35 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api/v1')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// customer crud
-Route::get('/v1/customers', 'CustomerController@index');
-Route::get('/v1/customer/{id}', 'CustomerController@show');
-Route::post('/v1/customer', 'CustomerController@store');
-Route::put('/v1/customer/{id}', 'CustomerController@update');
-Route::delete('/v1/customer/{id}', 'CustomerController@delete');
+// Customers endpoint
+Route::get('/customers', 'CustomerController@index');
+Route::post('/customers', 'CustomerController@store');
+Route::get('/customers/{customer}', 'CustomerController@show');
+Route::put('/customers/{customer}', 'CustomerController@update');
+Route::delete('/customers/{customer}', 'CustomerController@destroy');
+
+// Product endpoint
+Route::get('/products', 'ProductController@index');
+Route::post('/products', 'ProductController@store');
+Route::get('/products/{product}', 'ProductController@show');
+Route::put('/products/{product}', 'ProductController@update');
+Route::delete('/products/{product}', 'ProductController@destory');
+
+// Merchant endpoint
+Route::get('/merchants', 'MerchantController@index');
+Route::post('/merchants', 'MerchantController@store');
+Route::get('/merchants/{merchant}', 'MerchantController@show');
+Route::put('/merchants/{merchant}', 'MerchantController@update');
+Route::delete('/merchants/{merchant}', 'MerchantController@destroy');
+
+// Product Categories endpoint
+Route::get('/categories', 'ProductCategoryController@index');
+Route::get('/categories/{category}', 'ProductCategoryController@show');
+
+// Bank endpoint
+Route::get('/banks', 'BankController@index');
+Route::get('/banks/{bank}', 'BankController@show');

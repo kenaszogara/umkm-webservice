@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Customer::class, function (Faker $faker) {
     return [
+		'uuid' => $faker->uuid,
         'name' => $faker->name,
 		'phone_number' => $faker->numberBetween(),
 		'email' => $faker->name,

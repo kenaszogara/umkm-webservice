@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMBankMerchantTable extends Migration {
+class CreateMerchantBankTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateMBankMerchantTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('m_bank_merchant', function(Blueprint $table)
+		Schema::create('merchant_bank', function(Blueprint $table)
 		{
-			$table->integer('id', true);
-			$table->integer('kode_bank');
-			$table->string('nama_bank', 14);
+			$table->uuid('uuid', true)->primary();
+			$table->integer('code')->unsigned();
+			$table->string('name', 14);
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateMBankMerchantTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('m_bank_merchant');
+		Schema::dropIfExists('merchant_bank');
 	}
 
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMCustomerTable extends Migration {
+class CreatePendingMerchantsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,17 @@ class CreateMCustomerTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('m_customer', function(Blueprint $table)
+		Schema::create('pending_merchants', function(Blueprint $table)
 		{
-			$table->integer('id', true);
+			$table->uuid('uuid', true);
 			$table->string('name', 30);
-			$table->integer('phone_number');
+			$table->integer('phone');
 			$table->string('email', 30);
 			$table->string('address', 50);
-			$table->string('gender', 14);
-			$table->date('birth_date');
-			$table->string('profile', 100);
+			$table->string('bank_code', 50);
+			$table->integer('user');
+			$table->integer('description')->nullable();
+			$table->string('profile', 100)->nullable();
 			$table->timestamps();
 		});
 	}
@@ -34,7 +35,7 @@ class CreateMCustomerTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('m_customer');
+		Schema::dropIfExists('pending_merchants');
 	}
 
 }

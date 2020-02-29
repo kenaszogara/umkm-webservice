@@ -6,13 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'm_customer';
-	
 	// default value for table
 	protected $attributes = [
 		'profile' => '',
