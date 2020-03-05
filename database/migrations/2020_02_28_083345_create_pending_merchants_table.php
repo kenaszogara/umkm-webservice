@@ -14,14 +14,13 @@ class CreatePendingMerchantsTable extends Migration {
 	{
 		Schema::create('pending_merchants', function(Blueprint $table)
 		{
-			$table->uuid('uuid', true);
+			$table->uuid('uuid')->primary();
 			$table->string('name', 30);
-			$table->integer('phone');
+			$table->string('phone_number');
 			$table->string('email', 30);
 			$table->string('address', 50);
-			$table->string('bank_code', 50);
-			$table->integer('user');
-			$table->integer('description')->nullable();
+			$table->uuid('user_uuid');
+			$table->string('description')->nullable();
 			$table->string('profile', 100)->nullable();
 			$table->timestamps();
 		});

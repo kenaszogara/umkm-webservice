@@ -16,10 +16,10 @@ class CreateMerchantsTable extends Migration {
 		{
 			$table->uuid('uuid')->primary();
 			$table->string('name', 30);
-			$table->integer('phone');
+			$table->string('phone_number');
 			$table->string('email', 30);
 			$table->string('address', 50);
-			$table->integer('bank_code');
+			$table->integer('bank_id');
 			$table->string('description')->nullable();
 			$table->string('profile', 100)->nullable();
 			$table->timestamps();

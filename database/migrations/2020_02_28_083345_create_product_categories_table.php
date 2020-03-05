@@ -14,8 +14,7 @@ class CreateProductCategoriesTable extends Migration {
 	{
 		Schema::create('product_categories', function(Blueprint $table)
 		{
-			$table->uuid('uuid', true);
-			$table->integer('code')->unsigned();
+			$table->increments('id')->unsinged();
 			$table->string('name', 25);
 		});
 	}

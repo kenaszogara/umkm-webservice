@@ -14,8 +14,7 @@ class CreateMerchantBankTable extends Migration {
 	{
 		Schema::create('merchant_bank', function(Blueprint $table)
 		{
-			$table->uuid('uuid', true)->primary();
-			$table->integer('code')->unsigned();
+			$table->increments('id')->unsinged();
 			$table->string('name', 14);
 		});
 	}

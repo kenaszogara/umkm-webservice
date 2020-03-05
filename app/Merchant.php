@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Merchant extends Model
 {
@@ -22,7 +23,7 @@ class Merchant extends Model
         'phone', 
         'email',
         'address',
-        'bank_code',
+        'bank_id',
         'description',
         'profile'
     ];
@@ -37,6 +38,14 @@ class Merchant extends Model
     //      column_name_of_merchant_containing_identifier
     //      )
     public function bank() {
-        return $this->hasOne('App\Bank', 'code', 'bank_code');
+        return $this->hasOne('App\Bank', 'id', 'bank_id');
     }
+
+    public static function boot()
+	{
+		parent::boot();
+		self::creating(function ($model) {
+			$model->uuid = (string) Uuid::uuid4();
+		});
+	}
 }

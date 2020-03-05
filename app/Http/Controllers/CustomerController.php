@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth:api')->except(['index', 'show']);
+    }
+
     public function index()
     {
         $customers = Customer::paginate(10);
@@ -21,6 +26,15 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'phone_number' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'address' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required'
+        ]);
+		
         $customer = Customer::create($request->all());
 		
 		return response()->json($customer, 201);
@@ -28,7 +42,7 @@ class CustomerController extends Controller
 
     public function update(Request $request, Customer $customer)
     {
-		$customer = Customer::findOrFail($customer);
+        $customer = Customer::findOrFail($customer);
         $customer->update($request->all());
 
         return $customer;

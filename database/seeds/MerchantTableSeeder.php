@@ -20,30 +20,30 @@ class MerchantTableSeeder extends Seeder
             [
                 'uuid' => $faker->uuid,
                 'name' => 'Merchant A',
-                'phone' => '1234567890',
+                'phone_number' => '1234567890',
                 'email' => 'merchant@email.com',
                 'address' => 'jalan merchant',
-                'bank_code' => 10,
+                'bank_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'uuid' => $faker->uuid,
                 'name' => 'Merchant B',
-                'phone' => '1234567890',
+                'phone_number' => '1234567890',
                 'email' => 'merchant@email.com',
                 'address' => 'jalan merchant',
-                'bank_code' => 13,
+                'bank_id' => 3,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'uuid' => $faker->uuid,
                 'name' => 'Merchant C',
-                'phone' => '1234567890',
+                'phone_number' => '1234567890',
                 'email' => 'merchant@email.com',
                 'address' => 'jalan merchant',
-                'bank_code' => 12,
+                'bank_id' => 2,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

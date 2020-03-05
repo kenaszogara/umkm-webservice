@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name', 30);
             $table->bigInteger('price');
             $table->string('description', 100)->nullable();
-            $table->uuid('merchant_id');
-            $table->integer('category_code');
+            $table->uuid('merchant_uuid');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

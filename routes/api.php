@@ -17,7 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Customers endpoint
+// CustomerAut endpoint
+Route::post('/register', 'CustomerAuthController@register');
+Route::post('/login', 'CustomerAuthController@login');
+Route::get('/logout', 'CustomerAuthController@logout');
+Route::get('/user', 'CustomerAuthController@getAuthUser');
+
+// Customer endpoint
 Route::get('/customers', 'CustomerController@index');
 Route::post('/customers', 'CustomerController@store');
 Route::get('/customers/{customer}', 'CustomerController@show');
